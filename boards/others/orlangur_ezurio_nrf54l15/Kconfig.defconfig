@@ -1,0 +1,15 @@
+# Copyright (c) 2024 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+# Workaround for not being able to have commas in macro arguments
+DT_CHOSEN_Z_CODE_PARTITION := zephyr,code-partition
+DT_CHOSEN_Z_SRAM_PARTITION := zephyr,sram-secure-partition
+
+if BOARD_ORLANGUR_EZURIO_NRF54L15_CPUAPP
+
+config ROM_START_OFFSET
+	default 0 if PARTITION_MANAGER_ENABLED
+	default 0x800 if BOOTLOADER_MCUBOOT
+
+endif # BOARD_ORLANGUR_EZURIO_NRF54L15_CPUAPP
+

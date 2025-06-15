@@ -1,0 +1,9 @@
+board:
+  name: orlangur_ezurio_nrf54l15
+  full_name: Orlangur Ezurio nRF54L15 Breakout
+  vendor: orlangur
+  socs:
+  - name: nrf54l15
+    variants:
+    - name: def
+      cpucluster: cpuapp
