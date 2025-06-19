@@ -7,6 +7,7 @@
 /dts-v1/;
 
 #include <nordic/nrf54l15_cpuapp.dtsi>
+#include "pinctrl.dtsi"
 
 / {
 	compatible = "nordic,orlangur_ezurio_nrf54l15-cpuapp";
@@ -18,6 +19,7 @@
 		zephyr,flash-controller = &rram_controller;
 		zephyr,flash = &cpuapp_rram;
 		zephyr,ieee802154 = &ieee802154;
+		zephyr,console = &uart30;
 	};
 
 	leds {
@@ -35,6 +37,20 @@
 
 &cpuapp_sram {
 	status = "okay";
+};
+
+&uart20 {
+	current-speed = <115200>;
+	pinctrl-0 = <&uart20_default>;
+	pinctrl-1 = <&uart20_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&uart30 {
+	current-speed = <115200>;
+	pinctrl-0 = <&uart30_default>;
+	pinctrl-1 = <&uart30_sleep>;
+	pinctrl-names = "default", "sleep";
 };
 
 &lfxo {
