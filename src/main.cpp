@@ -50,10 +50,11 @@ int main(void)
 		 if (ret < 0) return 0;
 
 		led_state = !led_state;
-		if (led_state)
-			print_uart("LED state: ON\r\n");
-		else
-			print_uart("LED state: OFF\r\n");
+		printk("LED: %s\r\n", led_state ? "ON" : "OFF");
+		//if (led_state)
+		//	print_uart("LED state: ON\r\n");
+		//else
+		//	print_uart("LED state: OFF\r\n");
 		k_msleep(SLEEP_TIME_MS);
 	}
 
